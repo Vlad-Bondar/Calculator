@@ -24,4 +24,4 @@
 <a name="change"/>
 
 # 4 Изменение набора операций
-![Изменение набора операций](diagr_activ_smena operacii.png)
+![Изменение набора операций](diagr_activ_smena_operacii.png)
