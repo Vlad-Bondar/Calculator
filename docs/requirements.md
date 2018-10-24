@@ -36,9 +36,9 @@
 ### Интерфейс пользователя
 
 - Главный экран приложения
-  ![Main](calc_obich.png)
+  ![Main](mockups/calc_obich.png)
 - Экран с логическими операциями
-  ![PersonalPage](calc_prog.png)
+  ![PersonalPage](mockups/calc_prog.png)
 
 
 ### Характеристики пользователей
