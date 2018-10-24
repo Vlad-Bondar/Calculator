@@ -9,19 +9,19 @@
 <a name="oper"/>
 
 # 1 Ввод операнд
-![Ввод операнд](Activity.diagr_activ_vvod_dannyx.png)
+![Ввод операнд](diagr_activ_vvod_dannyx.png)
 
 <a name="znak"/>
 
 # 2 Выбор операции
-![Выбор операции](Activity.diagr_activ_vibor_operacii.png)
+![Выбор операции](diagr_activ_vibor_operacii.png)
 
 <a name="clear"/>
 
 # 3 Очистка экрана
-![Очистка экрана](Activity.diagr_activ_udalenie.png)
+![Очистка экрана](diagr_activ_udalenie.png)
 
 <a name="change"/>
 
 # 4 Изменение набора операций
-![Изменение набора операций](Activity.diagr_activ_smena operacii.png)
+![Изменение набора операций](diagr_activ_smena operacii.png)
