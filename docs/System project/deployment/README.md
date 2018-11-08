@@ -1,4 +1,4 @@
 # Структурная диаграмма
---
-(struct_diagr.png)
+
+ (struct_diagr.png)
 
