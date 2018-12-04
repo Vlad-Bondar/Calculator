@@ -13,11 +13,9 @@ public class StartActivity extends AppCompatActivity  {
     LogicalOperation logicalOperation=new LogicalOperation();
     TrigonometricOperation trigonometricOperation=new TrigonometricOperation();
     AdditionalOperation additionalOperation=new AdditionalOperation();
-    String sign;
+    String sign="";
     Boolean signNumber=true,changeFlag=true;
 
-
-    Context context;
     Button zeroButton;
     Button oneButton ;
     Button twoButton;
@@ -56,11 +54,10 @@ public class StartActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_start);
         setActions();
 
-
-
-
     }
+
     private void setActions() {
+
         zeroButton = findViewById(R.id.zeroButton);
         oneButton =  findViewById(R.id.oneButton);
         twoButton= findViewById(R.id.twoButton);
@@ -164,41 +161,51 @@ public class StartActivity extends AppCompatActivity  {
         equalButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operandt.setSecondOperandt(readOperandt());
-                switch (sign)
-                 {
-                     case "+": arithmeticOperation.plus(operandt.getFirstOperandt(),operandt.getSecondOperandt());
-                     textView.setText(arithmeticOperation.getResult().toString());
-                     break;
 
-                     case "-": arithmeticOperation.minus(operandt.getFirstOperandt(),operandt.getSecondOperandt());
-                     textView.setText(arithmeticOperation.getResult().toString());
-                     break;
+                if (!sign.equals("") && !textView.getText().toString().equals("")) {
+                    operandt.setSecondOperandt(readOperandt());
+                    switch (sign) {
+                        case "+":
+                            arithmeticOperation.plus(operandt.getFirstOperandt(), operandt.getSecondOperandt());
+                            textView.setText(arithmeticOperation.getResult().toString());
+                            break;
 
-                     case "*": arithmeticOperation.multiplication(operandt.getFirstOperandt(),operandt.getSecondOperandt());
-                     textView.setText(arithmeticOperation.getResult().toString());
-                     break;
+                        case "-":
+                            arithmeticOperation.minus(operandt.getFirstOperandt(), operandt.getSecondOperandt());
+                            textView.setText(arithmeticOperation.getResult().toString());
+                            break;
 
-                     case "÷": arithmeticOperation.division(operandt.getFirstOperandt(),operandt.getSecondOperandt());
-                     textView.setText(arithmeticOperation.getResult().toString());
-                     break;
+                        case "*":
+                            arithmeticOperation.multiplication(operandt.getFirstOperandt(), operandt.getSecondOperandt());
+                            textView.setText(arithmeticOperation.getResult().toString());
+                            break;
 
-                     case "xor": logicalOperation.xor(operandt.getFirstOperandt(),operandt.getSecondOperandt());
-                     textView.setText(logicalOperation.getResult().toString());
-                     break;
+                        case "÷":
+                            arithmeticOperation.division(operandt.getFirstOperandt(), operandt.getSecondOperandt());
+                            textView.setText(arithmeticOperation.getResult().toString());
+                            break;
 
-                     case "or": logicalOperation.or(operandt.getFirstOperandt(),operandt.getSecondOperandt());
-                     textView.setText(logicalOperation.getResult().toString());
-                     break;
+                        case "xor":
+                            logicalOperation.xor(operandt.getFirstOperandt(), operandt.getSecondOperandt());
+                            textView.setText(logicalOperation.getResult().toString());
+                            break;
 
-                     case "and": logicalOperation.and(operandt.getFirstOperandt(),operandt.getSecondOperandt());
-                     textView.setText(logicalOperation.getResult().toString());
-                     break;
+                        case "or":
+                            logicalOperation.or(operandt.getFirstOperandt(), operandt.getSecondOperandt());
+                            textView.setText(logicalOperation.getResult().toString());
+                            break;
 
-                     case "expon": additionalOperation.squarinng(operandt.getFirstOperandt(),operandt.getSecondOperandt());
-                         textView.setText(additionalOperation.getResult().toString());
-                         break;
-                 }
+                        case "and":
+                            logicalOperation.and(operandt.getFirstOperandt(), operandt.getSecondOperandt());
+                            textView.setText(logicalOperation.getResult().toString());
+                            break;
+
+                        case "expon":
+                            additionalOperation.squarinng(operandt.getFirstOperandt(), operandt.getSecondOperandt());
+                            textView.setText(additionalOperation.getResult().toString());
+                            break;
+                    }
+                }
             }
         });
 
@@ -206,142 +213,185 @@ public class StartActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 textView.setText("");
+                sign="";
+                operandt.setSecondOperandt((byte) 0);
+                operandt.setFirstOperandt((byte) 0);
             }
         });
 
         dotButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.append(".");
+                if (!textView.getText().toString().equals("")) {
+                    textView.append(".");
+                }
             }
         });
 
         plusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operandt.setFirstOperandt(readOperandt());
-                textView.setText("");
-                sign="+";
+                if (!textView.getText().toString().equals("")) {
+                    operandt.setFirstOperandt(readOperandt());
+                    textView.setText("");
+                    sign = "+";
+                }
             }
         });
 
         minusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operandt.setFirstOperandt(readOperandt());
-                textView.setText("");
-                sign="-";
+                if (!textView.getText().toString().equals("")) {
+                    operandt.setFirstOperandt(readOperandt());
+                    textView.setText("");
+                    sign = "-";
+                }
             }
         });
 
         divisionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operandt.setFirstOperandt(readOperandt());
-                textView.setText("");
-                sign="÷";
+                if (!textView.getText().toString().equals("")) {
+                    operandt.setFirstOperandt(readOperandt());
+                    textView.setText("");
+                    sign = "÷";
+                }
             }
         });
 
         multiplicationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operandt.setFirstOperandt(readOperandt());
-                textView.setText("");
-                sign="*";
+                if (!textView.getText().toString().equals("")) {
+                    operandt.setFirstOperandt(readOperandt());
+                    textView.setText("");
+                    sign = "*";
+                }
             }
         });
 
         sqrtButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operandt.setFirstOperandt(readOperandt());
-                additionalOperation.rootExtraction(operandt.getFirstOperandt());
-                textView.setText(additionalOperation.getResult().toString());
+                if (!textView.getText().toString().equals("")) {
+                    operandt.setFirstOperandt(readOperandt());
+                    additionalOperation.rootExtraction(operandt.getFirstOperandt());
+                    textView.setText(additionalOperation.getResult().toString());
 
+                }
+            }
+        });
+
+        notButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!textView.getText().toString().equals("")) {
+                    operandt.setFirstOperandt(readOperandt());
+                    logicalOperation.not(operandt.getFirstOperandt());
+                    textView.setText(logicalOperation.getResult().toString());
+                }
             }
         });
 
         sinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operandt.setFirstOperandt(readOperandt());
-                trigonometricOperation.sin(operandt.getFirstOperandt());
-                textView.setText(trigonometricOperation.getResult().toString());
+                if (!textView.getText().toString().equals("")) {
+                    operandt.setFirstOperandt(readOperandt());
+                    trigonometricOperation.sin(operandt.getFirstOperandt());
+                    textView.setText(trigonometricOperation.getResult().toString());
+                }
             }
         });
         cosButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operandt.setFirstOperandt(readOperandt());
-                trigonometricOperation.cos(operandt.getFirstOperandt());
-                textView.setText(trigonometricOperation.getResult().toString());
+                if (!textView.getText().toString().equals("")) {
+                    operandt.setFirstOperandt(readOperandt());
+                    trigonometricOperation.cos(operandt.getFirstOperandt());
+                    textView.setText(trigonometricOperation.getResult().toString());
+                }
             }
         });
 
         tgButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operandt.setFirstOperandt(readOperandt());
-                trigonometricOperation.tg(operandt.getFirstOperandt());
-                textView.setText(trigonometricOperation.getResult().toString());
+                if (!textView.getText().toString().equals("")) {
+                    operandt.setFirstOperandt(readOperandt());
+                    trigonometricOperation.tg(operandt.getFirstOperandt());
+                    textView.setText(trigonometricOperation.getResult().toString());
+                }
             }
         });
 
         ctgButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operandt.setFirstOperandt(readOperandt());
-                trigonometricOperation.ctg(operandt.getFirstOperandt());
-                textView.setText(trigonometricOperation.getResult().toString());
+                if (!textView.getText().toString().equals("")) {
+                    operandt.setFirstOperandt(readOperandt());
+                    trigonometricOperation.ctg(operandt.getFirstOperandt());
+                    textView.setText(trigonometricOperation.getResult().toString());
+                }
             }
         });
 
         oppositeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operandt.setFirstOperandt(readOperandt());
-                Double ch=1/operandt.getFirstOperandt();
+                if (!textView.getText().toString().equals("")) {
+                    operandt.setFirstOperandt(readOperandt());
+                    Double ch = 1 / operandt.getFirstOperandt();
 
-                textView.setText(ch.toString());
+                    textView.setText(ch.toString());
+                }
             }
         });
-
 
 
         exponentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operandt.setFirstOperandt(readOperandt());
-                textView.setText("");
-                sign="expon";
+                if (!textView.getText().toString().equals("")) {
+                    operandt.setFirstOperandt(readOperandt());
+                    textView.setText("");
+                    sign = "expon";
+                }
             }
         });
 
         xorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operandt.setFirstOperandt(readOperandt());
-                textView.setText("");
-                sign="xor";
+                if (!textView.getText().toString().equals("")) {
+                    operandt.setFirstOperandt(readOperandt());
+                    textView.setText("");
+                    sign = "xor";
+                }
             }
         });
 
         orButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operandt.setFirstOperandt(readOperandt());
-                textView.setText("");
-                sign="or";
+                if (!textView.getText().toString().equals("")) {
+                    operandt.setFirstOperandt(readOperandt());
+                    textView.setText("");
+                    sign = "or";
+                }
             }
         });
 
         andButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operandt.setFirstOperandt(readOperandt());
-                textView.setText("");
-                sign="and";
+                if (!textView.getText().toString().equals("")) {
+                    operandt.setFirstOperandt(readOperandt());
+                    textView.setText("");
+                    sign = "and";
+                }
             }
         });
 
@@ -349,18 +399,19 @@ public class StartActivity extends AppCompatActivity  {
         signButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(signNumber==true)
-                {
-                    Double str=readOperandt();
+                if (!textView.getText().toString().equals("")) {
+                    if (signNumber == true && readOperandt() > 0) {
+                        Double str = readOperandt();
 
-                    textView.setText("-");
-                    textView.append(str.toString());
-                    signNumber=false;
-                }
-                else {
-                    Double str=readOperandt()*(-1);
-                    textView.setText(str.toString());
-                    signNumber=true;
+                        textView.setText("-");
+                        textView.append(str.toString());
+                        signNumber = false;
+                    }
+                    else if (readOperandt() < 0) {
+                        Double str = readOperandt() * (-1);
+                        textView.setText(str.toString());
+                        signNumber = true;
+                    }
                 }
             }
         });
@@ -445,6 +496,8 @@ public class StartActivity extends AppCompatActivity  {
                     changeFlag=true;
 
                 }
+
+                textView.setText("");
             }
         });
 

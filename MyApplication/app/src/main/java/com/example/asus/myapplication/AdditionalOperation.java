@@ -6,8 +6,6 @@ import java.math.MathContext;
 
 public class AdditionalOperation extends Operation {
 
-    Boolean sign=true;
-
     @Override
     public Double getResult() {
         return result;

@@ -10,7 +10,9 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="360dp"
-        android:layout_height="181dp" />
+        android:layout_height="181dp"
+        android:textSize="25dp"
+        />
 
     <Button
         android:id="@+id/oneButton"

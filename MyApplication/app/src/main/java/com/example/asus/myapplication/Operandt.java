@@ -4,6 +4,11 @@ public class Operandt{
     private double firstOperandt;
     private double secondOperandt;
 
+    Operandt(){
+        firstOperandt=(byte) 0;
+        secondOperandt=(byte) 0;
+    }
+
     public double getFirstOperandt() {
         return firstOperandt;
     }

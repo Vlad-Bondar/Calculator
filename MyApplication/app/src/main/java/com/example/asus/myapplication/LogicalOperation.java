@@ -7,10 +7,10 @@ public class LogicalOperation extends Operation {
         int secondCh=(int)second;
         result=firstCh^secondCh;
     }
-    /*public double not(double first ,double second) {
+    public void not(double first ) {
         int firstCh=(int)first;
-        result=!(firstCh+0);
-    }*/
+        result=~firstCh;
+    }
     public void and(double first ,double second) {
 
         int firstCh=(int)first;
