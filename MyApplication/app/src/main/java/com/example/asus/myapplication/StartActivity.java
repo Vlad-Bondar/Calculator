@@ -1,6 +1,5 @@
 package com.example.asus.myapplication;
 
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -400,7 +399,7 @@ public class StartActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 if (!textView.getText().toString().equals("")) {
-                    if (signNumber == true && readOperandt() > 0) {
+                    if (signNumber && readOperandt() > 0) {
                         Double str = readOperandt();
 
                         textView.setText("-");
@@ -421,7 +420,7 @@ public class StartActivity extends AppCompatActivity  {
         changeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(changeFlag==true)
+                if(changeFlag)
                  {
                      sinButton.setEnabled(false);
                      sinButton.setVisibility(View.INVISIBLE);

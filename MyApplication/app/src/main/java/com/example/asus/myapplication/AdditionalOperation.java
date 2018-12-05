@@ -1,9 +1,5 @@
 package com.example.asus.myapplication;
 
-import android.widget.TextView;
-
-import java.math.MathContext;
-
 public class AdditionalOperation extends Operation {
 
     @Override
